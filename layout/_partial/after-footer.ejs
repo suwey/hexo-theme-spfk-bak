@@ -1,0 +1,25 @@
+<%- js('http://cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js') %>
+<%- js('js/mobile') %>
+<%- js('js/pc') %>
+<%- js('fancybox/jquery.fancybox') %>
+<%- js('js/jquery.lazyload') %>
+<%- js('js/main') %>
+<%- partial('_partial/background') %>
+<%- partial('google-analytics') %>
+<% if (theme.mathjax){ %>
+<%- partial('mathjax') %>
+<% } %>
+<%- partial('scrolling-button') %>
+<%- partial('_partial/hide-labels') %>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<% if (theme.TipTitle){ %>
+  <%- partial('post/TipTitle') %>
+<% } %>
+<% if (theme.chart){ %>
+<%- js('js/raphael') %>
+<%- js('js/underscore') %>
+<%- js('js/sequence-diagram') %>
+<%- js('js/flowchart') %>
+<%- partial('chart') %>
+<% } %>

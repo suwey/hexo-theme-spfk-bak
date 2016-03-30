@@ -1,0 +1,16 @@
+<% if (theme.chart){ %>
+<!-- Chart Render -->
+<script type="text/javascript">
+  $(".sequence").sequenceDiagram({theme: 'simple'});
+  var flowCount = 0;
+  $(".flow").each(function() {
+      var el = $(this);
+      el.hide();
+      el.after('<div id="flow-' + flowCount + '"></div>');
+      var chart = flowchart.parse(el.text());
+      chart.drawSVG('flow-' + flowCount);
+      flowCount++;
+  });
+</script>
+<!-- End Chart Render -->
+<% } %>
