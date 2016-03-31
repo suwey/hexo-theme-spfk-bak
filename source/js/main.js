@@ -59,26 +59,20 @@
                 }
                 $(".article-inner .fancy-ctn").fancybox();
             }
-       
+
 
     }
     //是否开启动画
     if(yiliaConfig.animate === true){
-
-     
-            //avatar
-            $(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
-            $(".js-avatar")[0].onload = function(){
-                $(".js-avatar").addClass("show");
-            }
-   
-
+      //avatar
+      $(".js-avatar").attr("src", $(".js-avatar").attr("lazy-src"));
+      $(".js-avatar")[0].onload = function(){
+          $(".js-avatar").addClass("show");
+      }
       if(yiliaConfig.isHome === true) {
-        // 滚动条监听使用scrollreveal.js
-        // https://github.com/jlmakes/scrollreveal.js
-        // 使用cdn[//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js]
- 
-
+          // 滚动条监听使用scrollreveal.js
+          // https://github.com/jlmakes/scrollreveal.js
+          // 使用cdn[//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js]
 
           // 更多animation:
           // http://daneden.github.io/animate.css/
@@ -109,29 +103,24 @@
                       showArticle();
                   });
                   showArticle();
-              }   
-
-     
-          // document.body有些浏览器不支持监听scroll，所以使用默认的document.documentElement
-          ScrollReveal({
-            duration: 0,
-            afterReveal: function (domEl) {
-              // safari不支持requestAnimationFrame不支持document.documentElement的onscroll所以这里不会执行
-              // 初始状态设为opacity: 0, 动画效果更平滑一些(由于脚本加载是异步，页面元素渲染后在执行动画，感觉像是延时)
-              $(domEl).addClass('animated ' + randomAnimationName).css({opacity: 1});
-            }
-          }).reveal('.body-wrap > article');
-
-
+              }
+          } else {
+              // document.body有些浏览器不支持监听scroll，所以使用默认的document.documentElement
+              ScrollReveal({
+                duration: 0,
+                afterReveal: function (domEl) {
+                  // safari不支持requestAnimationFrame不支持document.documentElement的onscroll所以这里不会执行
+                  // 初始状态设为opacity: 0, 动画效果更平滑一些(由于脚本加载是异步，页面元素渲染后在执行动画，感觉像是延时)
+                  $(domEl).addClass('animated ' + randomAnimationName).css({opacity: 1});
+                }
+              }).reveal('.body-wrap > article');
+          }
       } else {
         $('.body-wrap > article').css({opacity: 1});
       }
-
-    }
-
-    //是否新窗口打开链接
-    if(yiliaConfig.open_in_new == true){
-        $(".article a[href]").attr("target", "_blank")
-    }
-    $(".archive-article-title").attr("target", "_blank");
-}
+  }
+  //是否新窗口打开链接
+  if(yiliaConfig.open_in_new == true){
+      $(".article a[href]").attr("target", "_blank")
+  }
+  $(".archive-article-title").attr("target", "_blank");

@@ -32,14 +32,29 @@
                         <div class="icon-wrap icon-ribbon hide" data-idx="1">
                             <div class="ribbon"></div>
                         </div>
+                        <%if(theme.categories && site.categories.length){%>
+                        <div class="icon-wrap hide" data-idx="2">
+                            <div><i class="fa fa-book" style="font-size: 30px; color: #333;"></i></div>
+                        </div>
+                        <%}%>
                         <%if(theme.friends && theme.friends.length != 0){%>
-                        <div class="icon-wrap icon-link hide" data-idx="2">
+                          <%if(theme.categories && site.categories.length){%>
+                            <div class="icon-wrap icon-link hide" data-idx="3">
+                          <%}else{%>
+                            <div class="icon-wrap icon-link hide" data-idx="2">
+                          <%}%>
                             <div class="loopback_l"></div>
                             <div class="loopback_r"></div>
                         </div>
                         <%}%>
                         <%if(theme.aboutme){%>
-                        <div class="icon-wrap icon-me hide" data-idx="3">
+                          <%if(theme.categories && site.categories.length && theme.friends && theme.friends.length != 0){%>
+                            <div class="icon-wrap icon-me hide" data-idx="4">
+                          <%}else if(theme.categories && site.categories.length || theme.friends && theme.friends.length != 0){%>
+                            <div class="icon-wrap icon-me hide" data-idx="3">
+                          <%}else{%>
+                            <div class="icon-wrap icon-me hide" data-idx="2">
+                          <%}%>
                             <div class="user"></div>
                             <div class="shoulder"></div>
                         </div>
